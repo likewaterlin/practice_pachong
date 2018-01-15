@@ -17,12 +17,17 @@ class Baidu():
         self.name = name
         self.base_url = 'https://tieba.baidu.com/f?kw={}&pn='.format(name)
         self.url_list = [self.base_url + str(i*50) for i in range(pn)]
+        # for i in range(pn):
+        #     url = self.base_url + str(i*50)
+        #     self.url_list.append(url)
+        # print(self.url_list)
+
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:57.0) Gecko/20100101 Firefox/57.0'
         }
 
     def get_data(self,url):
-        response = requests.get(url, handers=self.headers)
+        response = requests.get(url, headers=self.headers)
         return response.content
 
     def save_data(self,data, num):
