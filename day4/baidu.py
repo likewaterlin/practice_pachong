@@ -45,7 +45,9 @@ class Baidu(object):
             # print(temp)
             data_list.append(temp)
         print(data_list)
+        # 此段需深思
         next_node = html.xpath('//*[@id="frs_list_pager"]/a[last()-1]/@href')
+        # 判断到尽头的状态情况么
         next_url = 'http:' + next_node[0] if len(next_node) > 0 else None
 
         # 返回值
